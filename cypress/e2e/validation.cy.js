@@ -5,7 +5,7 @@ describe("Login not authenticated", () => {
   it("will deny access with invalid credentials", () => {
     cy.visit("/");
     cy.wait(1000);
-    cy.get("button[data-auth='login']:visible").should("exist").click();
+    cy.get("#registerModal").contains("Login").click();
     cy.wait(2000);
     cy.get("input[type='email']:visible").type(invalidEmail, {
       delay: 500,
@@ -13,18 +13,18 @@ describe("Login not authenticated", () => {
     cy.get("input[type='password']:visible").type(invalidPassword, {
       delay: 500,
     });
-    cy.get(".btn-success:visible").should("exist").click();
+    cy.get("button[type=submit]").contains("Login").click();
     cy.wait(1000);
   });
 
   it("will deny access with empty credentials", () => {
     cy.visit("/");
     cy.wait(1000);
-    cy.get("button[data-auth='login']:visible").should("exist").click();
+    cy.get("#registerModal").contains("Login").click();
     cy.wait(2000);
     cy.get("input[type='email']:visible", { delay: 500 });
     cy.get("input[type='password']:visible", { delay: 500 });
-    cy.get(".btn-success:visible").should("exist").click();
+    cy.get("button[type=submit]").contains("Login").click();
     cy.wait(1000);
   });
 
@@ -37,7 +37,7 @@ describe("Login not authenticated", () => {
     cy.get("input[type='password']:visible").type(invalidPassword, {
       delay: 500,
     });
-    cy.get(".btn-success:visible").should("exist").click();
+    cy.get("button[type=submit]").contains("Login").click();
     cy.wait(1000);
   });
 
@@ -50,7 +50,7 @@ describe("Login not authenticated", () => {
       delay: 500,
     });
     cy.get("input[type='password']:visible", { delay: 500 });
-    cy.get(".btn-success:visible").should("exist").click();
+    cy.get("button[type=submit]").contains("Login").click();
     cy.wait(1000);
   });
 });
