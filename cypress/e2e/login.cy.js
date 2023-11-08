@@ -7,7 +7,7 @@ describe("Login Authentication", () => {
   it("will log in", () => {
     cy.visit("/");
     cy.wait(1000);
-    cy.get("#registerModal").contains("Login").click();
+    cy.get("#registerModal button[type=button]").contains("Login").click();
     cy.wait(2000);
     cy.get("input[type='email']:visible").type("fake@stud.noroff.no", {
       delay: 500,
