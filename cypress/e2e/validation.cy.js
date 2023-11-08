@@ -31,7 +31,7 @@ describe("Login not authenticated", () => {
   it("will deny access with empty email", () => {
     cy.visit("/");
     cy.wait(1000);
-    cy.get("button[data-auth='login']:visible").should("exist").click();
+    cy.get("#registerModal").contains("Login").click();
     cy.wait(2000);
     cy.get("input[type='email']:visible", { delay: 500 });
     cy.get("input[type='password']:visible").type(invalidPassword, {
@@ -44,7 +44,7 @@ describe("Login not authenticated", () => {
   it("will deny access with empty password", () => {
     cy.visit("/");
     cy.wait(1000);
-    cy.get("button[data-auth='login']:visible").should("exist").click();
+    cy.get("#registerModal").contains("Login").click();
     cy.wait(2000);
     cy.get("input[type='email']:visible").type(invalidEmail, {
       delay: 500,
