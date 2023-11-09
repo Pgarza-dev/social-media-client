@@ -18,12 +18,10 @@ describe("Logout Authentication", () => {
     cy.get("button[data-auth='logout']:visible").should("exist").click();
     cy.window().then((win) => {
       expect(win.localStorage.getItem("token")).to.be.null;
-      expect(win.localStorage.getItem("profile")).to.be.null;
       expect(win.localStorage.length).to.eq(0);
     });
     cy.then(() => {
       expect(localStorage.getItem("token")).to.be.null;
-      expect(localStorage.getItem("profile")).to.be.null;
     });
   });
 });
