@@ -16,7 +16,7 @@ This is a social media application that allows users to create an account, login
 ### Steps
 
 1. Clone the repository
-2. Initialize with git init
+2. Initialize with `git init`
 3. Run `npm install` to install dependencies
 
 ### Build Sass
@@ -47,7 +47,7 @@ This is a social media application that allows users to create an account, login
 
 ## Contributing
 
-If you'd like to contribute, feel free to make a PR to the JS2 branch.
+If you'd like to contribute, feel free to make a PR to the Workflow branch.
 
 ## Acknowledgments
 
