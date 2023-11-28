@@ -15,6 +15,8 @@ describe("Login not authenticated", () => {
     });
     cy.get("button[type=submit]").contains("Login").click();
     cy.wait(1000);
+    cy.get("input[type='email']:invalid").should("exist");
+    cy.get("input[type='password']:invalid").should("exist");
   });
 
   it("will deny access with empty credentials", () => {
@@ -26,6 +28,8 @@ describe("Login not authenticated", () => {
     cy.get("input[type='password']:visible", { delay: 500 });
     cy.get("button[type=submit]").contains("Login").click();
     cy.wait(1000);
+    cy.get("input[type='email']:invalid").should("exist");
+    cy.get("input[type='password']:invalid").should("exist");
   });
 
   it("will deny access with empty email", () => {
@@ -39,6 +43,8 @@ describe("Login not authenticated", () => {
     });
     cy.get("button[type=submit]").contains("Login").click();
     cy.wait(1000);
+    cy.get("input[type='email']:invalid").should("exist");
+    cy.get("input[type='password']:invalid").should("exist");
   });
 
   it("will deny access with empty password", () => {

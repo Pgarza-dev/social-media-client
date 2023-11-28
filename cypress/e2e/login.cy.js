@@ -15,5 +15,11 @@ describe("Login Authentication", () => {
     cy.get("input[type='password']:visible").type("fakefake", { delay: 500 });
     cy.get("button[type=submit]").contains("Login").click();
     cy.wait(500);
+    cy.window().then((window) => {
+      const token =
+        window.localStorage.getItem("token") ||
+        window.sessionStorage.getItem("token");
+      expect(token).to.be.a("string");
+    });
   });
 });
